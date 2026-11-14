@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="bg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b1120" />
+    <meta name="description" content="Med Simulation 3D: explore the human body and medical procedures in interactive 3D, in Bulgarian, English and Latin. Educational use only." />
+    <title>Med Simulation 3D</title>
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="MedAtlas" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f6feb'/%3E%3Cpath d='M13 7h6v6h6v6h-6v6h-6v-6H7v-6h6z' fill='white'/%3E%3C/svg%3E" />
+    <script type="module" crossorigin src="./assets/main-CTZAvVa5.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/modulepreload-polyfill-B5Qt9EMX.js">
+    <link rel="stylesheet" crossorigin href="./assets/main-r9jfRxRB.css">
+  </head>
+  <body>
+    <div id="splash" aria-hidden="true">
+      <div class="sp-inner">
+        <div class="sp-logo">✚</div>
+        <div class="sp-name">Med Simulation <i>3D</i></div>
+        <svg class="sp-ecg" viewBox="0 0 240 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 20h70l6-14 7 28 6-21 5 7h12l5 12 7-30 6 18 5-6h106" /></svg>
+      </div>
+    </div>
+    <aside id="sidebar">
+      <div class="brand">
+        <button class="logo-btn" data-home aria-label="Home"><span class="logo">✚</span><b>Med Simulation <i>3D</i></b></button>
+        <div class="lang" role="group" aria-label="Language"><button data-lang="bg">БГ</button><button data-lang="en">EN</button></div>
+        <button id="close-side" class="icon only-mobile" aria-label="Close menu" data-ico="close"></button>
+      </div>
+      <div class="search-wrap"><span class="s-ico" data-ico="search"></span><input id="search" type="search" autocomplete="off" /></div>
+      <div id="results" class="hidden"></div>
+      <h5 class="side-h" data-i18n="sideLearn"></h5>
+      <button id="body-link" class="quiz-link body-link" data-gobody><span class="qi" data-ico="body"></span><b data-i18n="wholeBody"></b><small>3D</small></button>
+      <button id="physio-link" class="quiz-link physio-link" data-gophysio><span class="qi" data-ico="physiology"></span><b data-i18n="physio"></b><small id="physio-count"></small></button>
+      <button id="sims-link" class="quiz-link sims-link" data-gosims><span class="qi" data-ico="sims"></span><b data-i18n="sims"></b><small id="sims-count"></small></button>
+      <button id="builder-link" class="quiz-link builder-link" data-gobuilder><span class="qi" data-ico="sims"></span><b data-i18n="builder"></b><small data-i18n="builderNew"></small></button>
+      <h5 class="side-h" data-i18n="sidePractise"></h5>
+      <button id="exam-link" class="quiz-link exam-link" data-goexammode><span class="qi" data-ico="exam"></span><b data-i18n="tileExam"></b></button>
+      <button id="quiz-link" class="quiz-link" data-goquiz><span class="qi" data-ico="quiz"></span><b data-i18n="quizzes"></b><small id="quiz-count"></small></button>
+      <button id="latin-link" class="quiz-link latin-link" data-golatin><span class="qi" data-ico="latin"></span><b data-i18n="tileLatin"></b></button>
+      <button id="install-app" class="quiz-link install-link" type="button" hidden><span class="qi" data-ico="download"></span><b data-i18n="installApp"></b></button>
+      <h5 class="side-h" data-i18n="tileSoon"></h5>
+      <div class="side-soon">
+        <button class="concept-link" data-goconcept="viruses" style="--c:#a78bfa"><span data-ico="virus"></span><em data-i18n="viruses"></em></button>
+        <button class="concept-link" data-goconcept="bacteria" style="--c:#3ddc97"><span data-ico="bacteria"></span><em data-i18n="bacteria"></em></button>
+        <button class="concept-link" data-goconcept="diseases" style="--c:#ff5d8f"><span data-ico="disease"></span><em data-i18n="diseases"></em></button>
+      </div>
+      <h5 class="side-h" data-i18n="sideAtlas"></h5>
+      <nav id="catalog"></nav>
+      <p class="disclaimer" data-i18n="disclaimer"></p>
+    </aside>
+    <div id="scrim"></div>
+
+    <main id="stage">
+      <canvas id="view"></canvas>
+      <div id="labels"></div>
+      <div id="tooltip" class="hidden"></div>
+
+      <header id="topbar">
+        <button id="open-side" class="icon only-mobile" aria-label="Menu" data-ico="menu"></button>
+        <div class="title"><small id="t-cat"></small><h1 id="t-title">Med Simulation 3D</h1><div id="t-sub"></div></div>
+        <div class="tools">
+          <button id="b-real" class="hidden" aria-pressed="true" title="Real anatomy / drawn model"><span data-ico="scan"></span> <em data-i18n="realModel"></em></button>
+          <button id="b-reset"><span data-ico="reset"></span> <em data-i18n="view"></em></button>
+          <button id="b-labels" aria-pressed="false"><span data-ico="labels"></span> <em data-i18n="labels"></em></button>
+          <button id="b-isolate" aria-pressed="false"><span data-ico="isolate"></span> <em data-i18n="isolate"></em></button>
+          <button id="b-cut" aria-pressed="false"><span data-ico="cut"></span> <em data-i18n="cutaway"></em></button>
+          <input id="cut-pos" type="range" min="-1" max="1" step="0.01" value="0" class="hidden" aria-label="Cut position" />
+        </div>
+      </header>
+      <div id="layers"></div>
+
+      <section id="panel">
+        <button id="sheet-handle" class="only-mobile" aria-label="Resize panel"><span></span></button>
+        <div class="tabs">
+          <button data-tab="info" class="active" data-i18n="explore"></button>
+          <button data-tab="steps" data-i18n="steps"></button>
+          <button data-tab="quiz" data-i18n="quiz"></button>
+          <button id="panel-toggle" class="icon only-desktop" aria-label="Collapse panel">–</button>
+        </div>
+        <div id="tab-info" class="tab">
+          <div id="info-card"></div>
+          <div id="parts"></div>
+        </div>
+        <div id="tab-steps" class="tab hidden"></div>
+        <div id="tab-quiz" class="tab hidden"></div>
+      </section>
+
+      <footer id="anim" class="hidden">
+        <button id="b-play">❚❚</button>
+        <span id="anim-label"></span>
+        <div class="speeds"><button data-speed="0.25">¼×</button><button data-speed="0.5">½×</button><button data-speed="1" class="active">1×</button><button data-speed="2">2×</button></div>
+      </footer>
+
+      <div id="home" class="hidden">
+        <div class="home-inner">
+          <section class="hero">
+            <div class="hero-text">
+              <div class="kicker">Med Simulation 3D</div>
+              <h2 data-i18n="heroTitle"></h2>
+              <p data-i18n="heroText"></p>
+              <button class="hero-go" data-gohuman><span data-ico="play"></span> <span data-i18n="heroGo"></span></button>
+              <div id="stats"></div>
+              <div class="ctas">
+                <button class="cta physio-cta" data-gophysio><span class="cta-i" data-ico="physiology"></span><span data-i18n="physioCta"></span><span class="cta-go">→</span></button>
+              </div>
+              <div class="home-tiles">
+                <button class="htile" data-gobody style="--c:#4ea1ff"><span class="ht-i" data-ico="body"></span><span class="ht-t"><b data-i18n="tileBody"></b><small data-i18n="tileBodySub"></small></span></button>
+                <button class="htile" data-gosims style="--c:#3ddc97"><span class="ht-i" data-ico="sims"></span><span class="ht-t"><b data-i18n="tileSims"></b><small data-i18n="tileSimsSub"></small></span></button>
+                <button class="htile" data-goexammode style="--c:#ffb84d"><span class="ht-i" data-ico="exam"></span><span class="ht-t"><b data-i18n="tileExam"></b><small data-i18n="tileExamSub"></small></span></button>
+                <button class="htile" data-goquiz style="--c:#a78bfa"><span class="ht-i" data-ico="quiz"></span><span class="ht-t"><b data-i18n="tileQuiz"></b><small data-i18n="tileQuizSub"></small></span></button>
+                <button class="htile" data-golatin style="--c:#c8a8ff"><span class="ht-i" data-ico="latin"></span><span class="ht-t"><b data-i18n="tileLatin"></b><small data-i18n="tileLatinSub"></small></span></button>
+                <div class="htile soon"><span class="ht-t"><b data-i18n="tileSoon"></b><span class="ht-soon"><button data-goconcept="viruses" style="--c:#a78bfa"><span data-ico="virus"></span><em data-i18n="viruses"></em></button><button data-goconcept="bacteria" style="--c:#3ddc97"><span data-ico="bacteria"></span><em data-i18n="bacteria"></em></button><button data-goconcept="diseases" style="--c:#ff5d8f"><span data-ico="disease"></span><em data-i18n="diseases"></em></button></span></span></div>
+              </div>
+              <p class="howto" data-i18n="howTo"></p>
+            </div>
+            <div class="hero-art" id="hero-art"><canvas id="hero-ecg" aria-hidden="true"></canvas></div>
+          </section>
+
+          <section class="home-sec" id="home-physio">
+            <h3 class="sec-h"><span class="sec-dot" style="--c:#ff5d8f"></span><b data-i18n="physioHeading"></b><button class="see-all" data-gophysio><span data-i18n="seeAll"></span> →</button></h3>
+            <p class="sec-sub" data-i18n="physioSub"></p>
+            <div id="home-phys-grid" class="phys-feature"></div>
+          </section>
+
+          <section class="home-sec">
+            <h3 class="sec-h"><span class="sec-dot" style="--c:#4ea1ff"></span><b data-i18n="topicsHeading"></b></h3>
+            <div id="chips"></div>
+            <div id="cards"></div>
+          </section>
+        </div>
+      </div>
+      <nav id="tabbar" aria-label="Sections">
+        <button data-go="" class="on"><span data-ico="home"></span><em data-i18n="tabHome"></em></button>
+        <button data-go="body"><span data-ico="body"></span><em data-i18n="tabBody"></em></button>
+        <button data-go="physio"><span data-ico="physiology"></span><em data-i18n="tabPhysio"></em></button>
+        <button data-go="sims"><span data-ico="sims"></span><em data-i18n="tabSims"></em></button>
+        <button data-go="quizzes"><span data-ico="quiz"></span><em data-i18n="tabQuiz"></em></button>
+      </nav>
+      <div id="quizzes" class="hidden"></div>
+      <div id="latin" class="hidden"></div>
+      <div id="exam" class="hidden"></div>
+      <div id="builder" class="hidden"></div>
+      <div id="build" class="hidden"></div>
+      <div id="physio" class="hidden"></div>
+      <div id="phys" class="hidden"></div>
+      <div id="sims" class="hidden"></div>
+      <div id="concept" class="hidden"></div>
+      <div id="sim" class="hidden"></div>
+      <div id="body" class="hidden">
+        <canvas id="body-view"></canvas>
+        <div id="body-tip" class="hidden"></div>
+        <div id="body-tools">
+          <button id="bt-home"><span data-ico="reset"></span> <em data-bi18n="reset"></em></button>
+          <button id="bt-xray" aria-pressed="false"><span data-ico="xray"></span> <em data-bi18n="xray"></em></button>
+        </div>
+        <div id="body-load" class="hidden"></div>
+        <aside id="body-panel">
+          <button id="body-handle" class="only-mobile" aria-label="Resize panel"><span></span></button>
+          <div id="body-head"></div>
+          <div class="b-scroll">
+            <h5 data-bi18n="layers"></h5>
+            <div id="body-layers"></div>
+            <h5 data-bi18n="presets"></h5>
+            <div id="body-presets"></div>
+            <div class="search-wrap b-search"><span class="s-ico" data-ico="search"></span><input id="body-search" type="search" autocomplete="off" /></div>
+            <div id="body-tabs" class="tabs">
+              <button data-btab="tree" data-bi18n="tree"></button>
+              <button data-btab="info" data-bi18n="info"></button>
+              <button data-btab="quiz" data-bi18n="quiz"></button>
+            </div>
+            <div id="body-tabc"></div>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </body>
+</html>

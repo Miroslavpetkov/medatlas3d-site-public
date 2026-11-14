@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="bg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#fbedec" />
+    <meta name="description" content="MedAtlas 3D: 3D атлас, физиология на живо и симулации на процедури за студенти по медицина. На български, с латински имена." />
+    <title>MedAtlas 3D</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563d9'/%3E%3Cpath d='M13 7h6v6h6v6h-6v6h-6v-6H7v-6h6z' fill='white'/%3E%3C/svg%3E" />
+    <script type="module" crossorigin src="./assets/landing-2KG1jcQ3.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/modulepreload-polyfill-B5Qt9EMX.js">
+    <link rel="stylesheet" crossorigin href="./assets/landing-BDVm9659.css">
+  </head>
+  <body>
+    <header class="bar">
+      <a class="brand" href="#top" aria-label="MedAtlas 3D">
+        <svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" /><path d="M13 7h6v6h6v6h-6v6h-6v-6H7v-6h6z" /></svg>
+        <span>MedAtlas 3D</span>
+      </a>
+      <nav class="bar-actions">
+        <div class="lang" role="group" aria-label="Език / Language">
+          <button type="button" data-lang="bg" aria-pressed="true">БГ</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <a class="bar-link" href="./" data-t="openApp"></a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <svg class="trace" viewBox="0 0 960 100" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 60h30q12-12 24 0h16l4 6 6-44 6 52 5-14h18q18-22 36 0h95h30q12-12 24 0h16l4 6 6-44 6 52 5-14h18q18-22 36 0h95h30q12-12 24 0h16l4 6 6-44 6 52 5-14h18q18-22 36 0h95h30q12-12 24 0h16l4 6 6-44 6 52 5-14h18q18-22 36 0h95" />
+        </svg>
+        <div class="hero-inner">
+          <div class="hero-text">
+            <h1 data-t="heroTitle"></h1>
+            <p class="lead" data-t="heroLead"></p>
+            <div class="cta-row">
+              <a class="btn primary" href="#signup" data-t="ctaSignup"></a>
+              <a class="btn ghost" href="./" data-t="ctaOpen"></a>
+            </div>
+          </div>
+          <figure class="phone">
+            <img src="landing/phone.webp" width="780" height="1560" data-alt="altPhone" />
+          </figure>
+        </div>
+      </section>
+
+      <section class="inside" aria-labelledby="inside-h">
+        <h2 id="inside-h" data-t="insideTitle"></h2>
+
+        <article class="feature">
+          <div class="feature-text">
+            <h3 data-t="atlasTitle"></h3>
+            <p data-t="atlasText"></p>
+          </div>
+          <img class="shot" src="landing/heart.webp" width="992" height="800" loading="lazy" data-alt="altHeart" />
+        </article>
+
+        <article class="feature">
+          <div class="feature-text">
+            <h3 data-t="physioTitle"></h3>
+            <p data-t="physioText"></p>
+          </div>
+          <img class="shot" src="landing/physio.webp" width="992" height="800" loading="lazy" data-alt="altPhysio" />
+        </article>
+
+        <article class="feature">
+          <div class="feature-text">
+            <h3 data-t="simTitle"></h3>
+            <p data-t="simText"></p>
+          </div>
+          <img class="shot" src="landing/sim.webp" width="992" height="800" loading="lazy" data-alt="altSim" />
+        </article>
+
+        <article class="feature">
+          <div class="feature-text">
+            <h3 data-t="examTitle"></h3>
+            <p data-t="examText"></p>
+          </div>
+          <img class="shot" src="landing/exam.webp" width="992" height="800" loading="lazy" data-alt="altExam" />
+        </article>
+
+        <article class="feature">
+          <div class="feature-text">
+            <h3 data-t="virusTitle"></h3>
+            <p data-t="virusText"></p>
+          </div>
+          <img class="shot" src="landing/virus.webp" width="992" height="800" loading="lazy" data-alt="altVirus" />
+        </article>
+      </section>
+
+      <section class="signup" id="signup" aria-labelledby="signup-h">
+        <div class="signup-intro">
+          <h2 id="signup-h" data-t="signupTitle"></h2>
+          <p data-t="signupLead"></p>
+        </div>
+
+        <form id="signup-form" novalidate>
+          <div class="field">
+            <label for="f-name" data-t="fName"></label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required maxlength="120" />
+          </div>
+          <div class="field">
+            <label for="f-email" data-t="fEmail"></label>
+            <input id="f-email" name="email" type="email" autocomplete="email" required maxlength="200" />
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-uni" data-t="fUni"></label>
+              <input id="f-uni" name="university" type="text" required maxlength="160" data-ph="fUniPh" />
+            </div>
+            <div class="field narrow">
+              <label for="f-year" data-t="fYear"></label>
+              <select id="f-year" name="year" required>
+                <option value="" data-t="fYearPick"></option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="graduated" data-t="fYearGrad"></option>
+                <option value="other" data-t="fYearOther"></option>
+              </select>
+            </div>
+          </div>
+          <fieldset class="field">
+            <legend data-t="fDevice"></legend>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="device" value="phone" required /><span data-t="fPhone"></span></label>
+              <label class="choice"><input type="radio" name="device" value="laptop" /><span data-t="fLaptop"></span></label>
+              <label class="choice"><input type="radio" name="device" value="both" /><span data-t="fBoth"></span></label>
+            </div>
+          </fieldset>
+          <div class="field">
+            <label for="f-hard"><span data-t="fHard"></span> <small data-t="optional"></small></label>
+            <textarea id="f-hard" name="struggle" rows="3" maxlength="1000" data-ph="fHardPh"></textarea>
+          </div>
+          <div class="hp" aria-hidden="true">
+            <label for="f-site">Website</label>
+            <input id="f-site" name="website" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+          <p class="privacy" data-t="privacy"></p>
+          <button class="btn primary submit" type="submit" data-t="submit"></button>
+          <p class="status" id="status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <p data-t="disclaimer"></p>
+      <p class="credits" data-t="credits"></p>
+    </footer>
+
+  </body>
+</html>

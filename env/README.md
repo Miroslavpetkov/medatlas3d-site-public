@@ -1,0 +1,1 @@
+`studio.exr` — studio lighting environment from [Poly Haven](https://polyhaven.com/hdris), CC0 (public domain), resized to 512×256 by the `@pmndrs/assets` package (also CC0). Used as the image-based light for the high-quality atlas renderer.
